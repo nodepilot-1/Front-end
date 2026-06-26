@@ -24,7 +24,7 @@ function scrollTo(id: string) {
 }
 
 /* ---------------- NAV ---------------- */
-function NavBar() {
+export function NavBar() {
   const [scrolled, setScrolled] = useState(false);
   const [open, setOpen] = useState(false);
   const [active, setActive] = useState("home");
@@ -67,9 +67,9 @@ function NavBar() {
             ))}
           </nav>
           
-          <button onClick={() => scrollTo("contact")} className="btn-gradient px-6 py-2.5 rounded-lg text-sm font-bold text-white transition-all shadow-[0_0_15px_rgba(0,183,181,0.3)] hover:shadow-[0_0_20px_rgba(0,183,181,0.5)]">
-            NodePilot Hub
-          </button>
+          <a href="/product" className="btn-gradient px-6 py-2.5 rounded-lg text-sm font-bold text-white transition-all shadow-[0_0_15px_rgba(0,183,181,0.3)] hover:shadow-[0_0_20px_rgba(0,183,181,0.5)]">
+            NP Core 1.0
+          </a>
         </div>
 
         {/* Mobile Menu Toggle */}
@@ -91,9 +91,9 @@ function NavBar() {
             </button>
           ))}
           <div className="pt-4 mt-4 border-t border-white/5">
-            <button className="w-full btn-gradient text-white px-6 py-3 rounded-xl text-sm font-bold shadow-[0_0_15px_rgba(0,183,181,0.3)] hover:shadow-[0_0_20px_rgba(0,183,181,0.5)]">
-              NodePilot Hub
-            </button>
+            <a href="/Product" className="w-full btn-gradient text-white px-6 py-3 rounded-xl text-sm font-bold shadow-[0_0_15px_rgba(0,183,181,0.3)] hover:shadow-[0_0_20px_rgba(0,183,181,0.5)]">
+              NP Core 1.0
+            </a>
           </div>
         </motion.div>
       )}
@@ -209,15 +209,15 @@ function Hero() {
       {
         text: (
           <span className="flex items-center gap-2">
-            Request Demo <ArrowRight className="h-4 w-4" />
+            Explore NP Core 1.0 <ArrowRight className="h-4 w-4" />
           </span>
         ),
-        onClick: () => scrollTo("contact"),
+        onClick: () => { window.location.href = "/Product"; },
         className: 'border border-border hover:bg-white/5 transition text-white',
       },
       {
-        text: 'Explore Platform',
-        onClick: () => scrollTo("features"),
+        text: 'Request Demo',
+        onClick: () => scrollTo("contact"),
         variant: 'outline' as const,
         className: 'glass hover:bg-white/10 text-white border-white/10',
       }

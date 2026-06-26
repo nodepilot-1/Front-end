@@ -13,6 +13,7 @@ import { Route as TermsAndConditionsRouteImport } from './routes/terms-and-condi
 import { Route as PrivacyPolicyRouteImport } from './routes/privacy-policy'
 import { Route as CookiesPolicyRouteImport } from './routes/cookies-policy'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as ProductRouteImport } from './routes/product'
 
 const TermsAndConditionsRoute = TermsAndConditionsRouteImport.update({
   id: '/terms-and-conditions',
@@ -29,6 +30,11 @@ const CookiesPolicyRoute = CookiesPolicyRouteImport.update({
   path: '/cookies-policy',
   getParentRoute: () => rootRouteImport,
 } as any)
+const ProductRoute = ProductRouteImport.update({
+  id: '/Product',
+  path: '/Product',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
@@ -40,12 +46,14 @@ export interface FileRoutesByFullPath {
   '/cookies-policy': typeof CookiesPolicyRoute
   '/privacy-policy': typeof PrivacyPolicyRoute
   '/terms-and-conditions': typeof TermsAndConditionsRoute
+  '/Product': typeof ProductRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/cookies-policy': typeof CookiesPolicyRoute
   '/privacy-policy': typeof PrivacyPolicyRoute
   '/terms-and-conditions': typeof TermsAndConditionsRoute
+  '/Product': typeof ProductRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
@@ -53,6 +61,7 @@ export interface FileRoutesById {
   '/cookies-policy': typeof CookiesPolicyRoute
   '/privacy-policy': typeof PrivacyPolicyRoute
   '/terms-and-conditions': typeof TermsAndConditionsRoute
+  '/Product': typeof ProductRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
@@ -61,14 +70,16 @@ export interface FileRouteTypes {
     | '/cookies-policy'
     | '/privacy-policy'
     | '/terms-and-conditions'
+    | '/Product'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/cookies-policy' | '/privacy-policy' | '/terms-and-conditions'
+  to: '/' | '/cookies-policy' | '/privacy-policy' | '/terms-and-conditions' | '/Product'
   id:
     | '__root__'
     | '/'
     | '/cookies-policy'
     | '/privacy-policy'
     | '/terms-and-conditions'
+    | '/Product'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
@@ -76,6 +87,7 @@ export interface RootRouteChildren {
   CookiesPolicyRoute: typeof CookiesPolicyRoute
   PrivacyPolicyRoute: typeof PrivacyPolicyRoute
   TermsAndConditionsRoute: typeof TermsAndConditionsRoute
+  ProductRoute: typeof ProductRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -116,6 +128,7 @@ const rootRouteChildren: RootRouteChildren = {
   CookiesPolicyRoute: CookiesPolicyRoute,
   PrivacyPolicyRoute: PrivacyPolicyRoute,
   TermsAndConditionsRoute: TermsAndConditionsRoute,
+  ProductRoute: ProductRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
